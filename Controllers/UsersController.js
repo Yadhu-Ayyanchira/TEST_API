@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 
 //<----------------USER REGISTERATION-------------------->
-const register = async (req, res, next) => {
+const register = async (req, res) => {
   try {
     const { name, password } = req.body;
     if(!name || !password){
@@ -22,7 +22,7 @@ const register = async (req, res, next) => {
       });
       return res
         .status(201)
-        .json({ token, status: true, message: "User Registered successfully" });
+        .json({ token, user, status: true, message: "User Registered successfully" });
     } else {
       return res.status(400).json({ status: false, message: "Something went wrong" });
     }
@@ -42,7 +42,7 @@ const register = async (req, res, next) => {
     }
     const user = await User.findOne({ name: name });
     if (!user) {
-      return res.status(401).json({ status: false, message: "User not found" });
+      return res.status(404).json({ status: false, message: "User not found" });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
