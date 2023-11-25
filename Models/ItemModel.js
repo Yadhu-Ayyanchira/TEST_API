@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 const itemSchema = new mongoose.Schema({
-  item: {
+  user: {
     type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
@@ -14,3 +14,6 @@ const itemSchema = new mongoose.Schema({
     type: String,
   },
 });
+
+const Item = mongoose.model("Item", itemSchema);
+export default Item;
