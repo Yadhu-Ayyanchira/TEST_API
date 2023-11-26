@@ -13,7 +13,7 @@ This is a simple RESTful API built with Node.js, Express, and MongoDB for managi
 * **Delete Item:** Authenticated users with the appropriate authorization can delete a specific item.
 
 ## Security
-* **Authentication Middleware:** The API employs a middleware for user authentication, verifying JWTs before granting access to certain endpoints.
+* **Authentication Middleware:** The API employs a middleware for user authentication, verifying JWTs before granting access to certain endpoints. The JWT key must send through the headers as a Bearer token. Authentication middleware check the token and give the autherization
 * **Password Hashing:** User passwords are securely hashed using bcrypt before being stored in the database.
 ## Dependencies
 * **Express**
@@ -24,10 +24,10 @@ This is a simple RESTful API built with Node.js, Express, and MongoDB for managi
 * **nodemon**(dev dependency)
 ## Testing  
 **localhost**  
-Please go through the installation setup provided below and use the localhost link: [http://localhost:3001/api/](). Utilize a tool such as Postman for testing.  
+Please go through the installation setup provided below and use the localhost link: [http://localhost:3001/api/](http://localhost:3001/api/Items). Utilize a tool such as Postman for testing.  
 
 **Live URL**  
-Please use the following link for testing the API without installing: [https://test-api-t9rs.onrender.com/api/Items](). Ensure that you use a tool like Postman for testing.
+Please use the following link for testing the API without installing: [https://test-api-t9rs.onrender.com/api/Items](https://test-api-t9rs.onrender.com/api/Items). Ensure that you use a tool like Postman for testing.
 
 ## Installation
 
@@ -61,7 +61,7 @@ Please use the following link for testing the API without installing: [https://t
 Register a user by providing  username and a secure password. For security, the password is hashed before it is stored in the database.  
 
 METHOD:POST   
-ENDPOINT:[http://localhost:3001/api/Users/register]()  
+ENDPOINT:[http://localhost:3001/api/Users/register](http://localhost:3001/api/Users/register)  
 AUTHENTICATION:FALSE  
 CONTROLLER FUNCTION: UsersController.register  
 PAYLOAD: { "name": "username", "password": "userpassword" } 
@@ -72,7 +72,7 @@ PAYLOAD: { "name": "username", "password": "userpassword" }
 Authenticates the user with the registered name and password, and returns the JWT token for subsequent authenticated requests.
 
 METHOD:POST   
-ENDPOINT:[http://localhost:3001/api/Users/login]()  
+ENDPOINT:[http://localhost:3001/api/Users/login](http://localhost:3001/api/Users/login)  
 AUTHENTICATION:FALSE  
 CONTROLLER FUNCTION: UsersController.login  
 PAYLOAD: { "name": "username", "password": "userpassword" }  
@@ -81,7 +81,7 @@ PAYLOAD: { "name": "username", "password": "userpassword" }
 Adds a new item to the database. Authentication must be done with a JWT token. The object is associated with the user whose token was issued.
 
 METHOD:POST   
-ENDPOINT:[http://localhost:3001/api/Items]()  
+ENDPOINT:[http://localhost:3001/api/Items](http://localhost:3001/api/Items)  
 AUTHENTICATION:TRUE (Bearer token)  
 CONTROLLER FUNCTION: ItemsController.addItem  
 PAYLOAD: { "name": "itemname", "description": "itemdescription" }   
@@ -91,7 +91,7 @@ PAYLOAD: { "name": "itemname", "description": "itemdescription" }
 Retrieves a list of items from the database. The optional search parameter allows users to filter items by name. The page parameter facilitates paginated results, with a default page size of 10 items.
 
 METHOD:GET   
-ENDPOINT:[http://localhost:3001/api/Items]()  
+ENDPOINT:[http://localhost:3001/api/Items](http://localhost:3001/api/Items)  
 AUTHENTICATION:FALSE  
 CONTROLLER FUNCTION: ItemsController.getAllItems  
 QUERY PARAMETERS: `search`  (optional) and `page` (Page should start from 1)
@@ -100,7 +100,7 @@ QUERY PARAMETERS: `search`  (optional) and `page` (Page should start from 1)
 Retrieves detailed information about a specific item based on its unique id
 
 METHOD:GET   
-ENDPOINT:[http://localhost:3001/api/Items/:id]()  
+ENDPOINT:[http://localhost:3001/api/Items/:id](http://localhost:3001/api/Items/:id)  
 AUTHENTICATION:FALSE  
 PATH PARAMETERS: Id of an item
 
@@ -108,7 +108,7 @@ PATH PARAMETERS: Id of an item
 Deletes a specific item based on its unique identifier Id.Requires authentication through a JWT token
 
 METHOD:DELETE   
-ENDPOINT:[http://localhost:3001/api/Items/:id]()  
+ENDPOINT:[http://localhost:3001/api/Items/:id](http://localhost:3001/api/Items/:id)  
 AUTHENTICATION:TRUE (Bearer token)  
 CONTROLLER FUNCTION: ItemsController.deleteItem  
 PATH PARAMETERS: Id of an item
@@ -117,7 +117,7 @@ PATH PARAMETERS: Id of an item
 Modifies the details of a specific item based on its unique identifier Id. Requires authentication through a JWT token.
 
 METHOD:PUT   
-ENDPOINT:[http://localhost:3001/api/Items/:id]()  
+ENDPOINT:[http://localhost:3001/api/Items/:id](http://localhost:3001/api/Items/:id)  
 AUTHENTICATION:TRUE (Bearer token)  
 CONTROLLER FUNCTION: ItemsController.editItem  
 PATH PARAMETERS: Id of an item
