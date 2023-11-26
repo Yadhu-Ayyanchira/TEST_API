@@ -5,7 +5,7 @@ This is a simple RESTful API built with Node.js, Express, and MongoDB for managi
 * **User Registration:** Allows new users to sign up by providing a unique username and a secure password. Passwords are hashed before storage.  
 * **User Login:** Existing users can log in by submitting their username and password. A JWT is issued upon successful authentication.
 
-## User Management:  
+## Item Management:  
 * **Add Item:** Authenticated users can add new items, associating them with their user account. Authorization is enforced through JWT.  
 * **Get All Items:** Retrieves a list of items, optionally filtered by a search term, and paginated for ease of navigation.
 * **Get One Item:** Fetches detailed information about a specific item based on its unique identifier.
