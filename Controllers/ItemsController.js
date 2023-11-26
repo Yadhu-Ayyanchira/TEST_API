@@ -49,9 +49,13 @@ const getAllItems = async (req, res) => {
 
 const getOneItem = async (req, res) => {
   try {
+    console.log("one item");
     const { id } = req.params;
+    console.log("id=",id);
     const item = await Item.findById(id);
+    console.log(item);
     if (item) {
+      console.log("have item");
       return res
         .status(200)
         .json({ item, status: true, message: "Item found" });
@@ -59,7 +63,7 @@ const getOneItem = async (req, res) => {
       return res.status(404).json({ status: false, message: "Item not found" });
     }
   } catch (error) {
-    res.status(500).json({ status: false, message: "Internal Server Error" });
+    res.status(500).json({ status: false, message: "Internal Server Errorr" });
   }
 };
 
