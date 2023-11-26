@@ -22,6 +22,13 @@ This is a simple RESTful API built with Node.js, Express, and MongoDB for managi
 * **bcrypt**
 * **mongoose**
 * **nodemon**(dev dependency)
+## Testing  
+**localhost**  
+Please go through the installation setup provided below and use the localhost link: [http://localhost:3001/api/](). Utilize a tool such as Postman for testing.  
+
+**Live URL**  
+Please use the following link for testing the API without installing: [https://test-api-t9rs.onrender.com/api/Items](). Ensure that you use a tool like Postman for testing.
+
 ## Installation
 
 1. Clone the repository:
